@@ -13,7 +13,7 @@ namespace CdSite.Data{
         }
 
         // Knyter an till modeller
-        public DbSet<Cd> Cd { get; set; }
-        public DbSet<Lending> Lending {get; set;}
+        public DbSet<Cd> Cd { get; set; }  = default!;
+        public DbSet<Lending> Lending {get; set;}  = default!;
     }
 }

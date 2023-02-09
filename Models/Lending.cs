@@ -1,6 +1,5 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace CdSite.Models {
+namespace CdSite.Models
+{
 
     public class Lending {
 
