@@ -18645,6 +18645,11 @@
   "RootNamespace": "CdSite",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Cd\\Delete.cshtml",
+      "TargetPath": "Views\\Cd\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -18660,8 +18665,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Cd\\Details.cshtml",
+      "TargetPath": "Views\\Cd\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Cd\\Index.cshtml",
+      "TargetPath": "Views\\Cd\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Lending\\Create.cshtml",
+      "TargetPath": "Views\\Lending\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Lending\\Delete.cshtml",
+      "TargetPath": "Views\\Lending\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Lending\\Index.cshtml",
+      "TargetPath": "Views\\Lending\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18670,8 +18700,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Lending\\Edit.cshtml",
+      "TargetPath": "Views\\Lending\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Cd\\Create.cshtml",
+      "TargetPath": "Views\\Cd\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Cd\\Edit.cshtml",
+      "TargetPath": "Views\\Cd\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\maxor\\CdSite\\Views\\Lending\\Details.cshtml",
+      "TargetPath": "Views\\Lending\\Details.cshtml",
       "FileKind": "mvc"
     },
     {

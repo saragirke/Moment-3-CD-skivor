@@ -10,6 +10,6 @@ namespace CdSite.Models
         public String? Date {get; set;}
 
         public int CdId {get ; set;}
-        public Cd? Cd {get; set;}
+        public Cd Cd {get; set;}  = default!;
     }
 }

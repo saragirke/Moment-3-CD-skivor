@@ -9,37 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CdSite
 build_property.RootNamespace = CdSite
-build_property.ProjectDir = C:\Users\maxor\CdSite\
+build_property.ProjectDir = c:\Users\maxor\CdSite\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\maxor\CdSite
+build_property.MSBuildProjectDirectory = c:\Users\maxor\CdSite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/maxor/CdSite/Views/Home/Index.cshtml]
+[c:/Users/maxor/CdSite/Views/Cd/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2RcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Cd/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2RcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Cd/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2RcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Cd/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Cd/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxor/CdSite/Views/Home/Privacy.cshtml]
+[c:/Users/maxor/CdSite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxor/CdSite/Views/Shared/Error.cshtml]
+[c:/Users/maxor/CdSite/Views/Lending/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Lending/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Lending/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Lending/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Lending/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVuZGluZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/maxor/CdSite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxor/CdSite/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/maxor/CdSite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxor/CdSite/Views/_ViewImports.cshtml]
+[c:/Users/maxor/CdSite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxor/CdSite/Views/_ViewStart.cshtml]
+[c:/Users/maxor/CdSite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxor/CdSite/Views/Shared/_Layout.cshtml]
+[c:/Users/maxor/CdSite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-f9dzjn7ffn
