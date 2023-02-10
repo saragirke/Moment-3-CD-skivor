@@ -48,7 +48,7 @@ namespace CdSite
         // GET: Lending/Create
         public IActionResult Create()
         {
-            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Artist");
+            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Title");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace CdSite
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Artist", lending.CdId);
+            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Title", lending.CdId);
             return View(lending);
         }
 
@@ -82,7 +82,7 @@ namespace CdSite
             {
                 return NotFound();
             }
-            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Artist", lending.CdId);
+            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Title", lending.CdId);
             return View(lending);
         }
 
@@ -118,7 +118,7 @@ namespace CdSite
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Artist", lending.CdId);
+            ViewData["CdId"] = new SelectList(_context.Cd, "Id", "Title", lending.CdId);
             return View(lending);
         }
 

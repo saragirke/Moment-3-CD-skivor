@@ -1,7 +1,7 @@
-@model IEnumerable<CdSite.Models.Lending>
 
+@model IEnumerable<CdSite.Models.Lending>
 @{
-    Layout = null;
+    ViewData["Title"] = "Lån av CD";
 }
 
 <!DOCTYPE html>
@@ -12,9 +12,17 @@
     <title>Index</title>
 </head>
 <body>
+    <h1>Utlånade CD-skivor</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Lägg till ett nytt lån</a>
 </p>
+
+<form asp-controller="Lending" asp-action="Index" method="get">
+    <p>
+        Sök på namn: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -39,13 +47,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cd.Artist)
+                        <td>
+                @Html.DisplayFor(modelItem => item.Cd.Title)
             </td>
+
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Redigera</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Radera</a>
             </td>
         </tr>
 }

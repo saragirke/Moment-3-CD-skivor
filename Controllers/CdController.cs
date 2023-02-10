@@ -19,13 +19,32 @@ namespace CdSite
             _context = context;
         }
 
-        // GET: Cd
-        public async Task<IActionResult> Index()
-        {
-              return _context.Cd != null ? 
-                          View(await _context.Cd.ToListAsync()) :
-                          Problem("Entity set 'CdContext.Cd'  is null.");
-        }
+        // GET: Cd, Sökfunktionalitet
+    public async Task<IActionResult> Index(string searchString)
+    {
+
+        var cds = from m in _context.Cd
+                select m;
+
+
+        if (_context.Cd == null)
+    {
+        return Problem("Entity set 'MvcCdContext.Movie'  is null.");
+    }
+
+
+    //Lamda Expression 
+    //Sök efter Title, Genre, Atist
+         if (!String.IsNullOrEmpty(searchString))
+    {
+        cds = cds.Where(s => s.Title!.Contains(searchString) || s.Genre!.Contains(searchString) || s.Artist!.Contains(searchString));
+    }
+
+
+    return View(await cds.ToListAsync());
+}
+
+
 
         // GET: Cd/Details/5
         public async Task<IActionResult> Details(int? id)
