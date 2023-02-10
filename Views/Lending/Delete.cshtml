@@ -1,21 +1,22 @@
 @model CdSite.Models.Lending
 
 @{
-    ViewData["Title"] = "Radera CD";
+    ViewData["Title"] = "Radera lån";
 }
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>Radera</title>
 </head>
 <body>
 
-<h3>Är du säker på att lånet ska raderas?</h3>
+<h3>Är du säker på att du vill radera lånet?</h3>
 <div>
-    <h4>Lån av CD</h4>
+    <h4>Lån av skiva</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -34,14 +35,14 @@
             @Html.DisplayNameFor(model => model.Cd)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cd.Title)
+            @Html.DisplayFor(model => model.Cd.Genre)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Tillbaka till lån</a>
+        <a asp-action="Index">Tillbaka till lånelistan</a>
     </form>
 </div>
 </body>

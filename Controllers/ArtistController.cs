@@ -10,108 +10,87 @@ using CdSite.Models;
 
 namespace CdSite
 {
-    public class CdController : Controller
+    public class ArtistController : Controller
     {
         private readonly CdContext _context;
-//
-        public CdController(CdContext context)
+
+        public ArtistController(CdContext context)
         {
             _context = context;
         }
 
-      
-        // GET: CD + Sökfunktionalitet. 
-        // Blandning av guide from Microsoft och den färdiga koden som kommer när man scaffoldar.
-        //Följde guiden men då gick det inte att lista Artistens namn men sökfunktionen funkade
-        public async Task<IActionResult> Index(string searchString)
+        // GET: Artist
+        public async Task<IActionResult> Index()
         {
-            var cds = from m in _context.Cd.Include(m => m.Artist)
-            select m;
- 
-        if (_context.Cd == null)
-    {
-        return Problem("Entity set 'MvcCdContext.Movie'  is null.");
-    }
-
-    //Lamda Expression 
-    //Sök efter Title, Genre
-         if (!String.IsNullOrEmpty(searchString))
-    {
-        cds = cds.Where(s => s.Title!.Contains(searchString) || s.Genre!.Contains(searchString));
-    }
-            return View(await cds.ToListAsync());
+              return _context.Artist != null ? 
+                          View(await _context.Artist.ToListAsync()) :
+                          Problem("Entity set 'CdContext.Artist'  is null.");
         }
-        
 
-
-        // GET: Cd/Details/5
+        // GET: Artist/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Cd == null)
+            if (id == null || _context.Artist == null)
             {
                 return NotFound();
             }
 
-            var cd = await _context.Cd
-                .Include(c => c.Artist)
+            var artist = await _context.Artist
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cd == null)
+            if (artist == null)
             {
                 return NotFound();
             }
 
-            return View(cd);
+            return View(artist);
         }
 
-        // GET: Cd/Create
+        // GET: Artist/Create
         public IActionResult Create()
         {
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Name");
             return View();
         }
 
-        // POST: Cd/Create
+        // POST: Artist/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ArtistId,Genre,Year")] Cd cd)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Artist artist)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cd);
+                _context.Add(artist);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Name", cd.ArtistId);
-            return View(cd);
+            return View(artist);
         }
 
-        // GET: Cd/Edit/5
+        // GET: Artist/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Cd == null)
+            if (id == null || _context.Artist == null)
             {
                 return NotFound();
             }
 
-            var cd = await _context.Cd.FindAsync(id);
-            if (cd == null)
+            var artist = await _context.Artist.FindAsync(id);
+            if (artist == null)
             {
                 return NotFound();
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Name", cd.ArtistId);
-            return View(cd);
+            return View(artist);
         }
 
-        // POST: Cd/Edit/5
+        // POST: Artist/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ArtistId,Genre,Year")] Cd cd)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Artist artist)
         {
-            if (id != cd.Id)
+            if (id != artist.Id)
             {
                 return NotFound();
             }
@@ -120,12 +99,12 @@ namespace CdSite
             {
                 try
                 {
-                    _context.Update(cd);
+                    _context.Update(artist);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CdExists(cd.Id))
+                    if (!ArtistExists(artist.Id))
                     {
                         return NotFound();
                     }
@@ -136,51 +115,49 @@ namespace CdSite
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Name", cd.ArtistId);
-            return View(cd);
+            return View(artist);
         }
 
-        // GET: Cd/Delete/5
+        // GET: Artist/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Cd == null)
+            if (id == null || _context.Artist == null)
             {
                 return NotFound();
             }
 
-            var cd = await _context.Cd
-                .Include(c => c.Artist)
+            var artist = await _context.Artist
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cd == null)
+            if (artist == null)
             {
                 return NotFound();
             }
 
-            return View(cd);
+            return View(artist);
         }
 
-        // POST: Cd/Delete/5
+        // POST: Artist/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Cd == null)
+            if (_context.Artist == null)
             {
-                return Problem("Entity set 'CdContext.Cd'  is null.");
+                return Problem("Entity set 'CdContext.Artist'  is null.");
             }
-            var cd = await _context.Cd.FindAsync(id);
-            if (cd != null)
+            var artist = await _context.Artist.FindAsync(id);
+            if (artist != null)
             {
-                _context.Cd.Remove(cd);
+                _context.Artist.Remove(artist);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CdExists(int id)
+        private bool ArtistExists(int id)
         {
-          return (_context.Cd?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Artist?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

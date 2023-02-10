@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CdSite.Migrations
 {
     [DbContext(typeof(CdContext))]
-    [Migration("20230209202819_InitialCreate")]
+    [Migration("20230210133850_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,15 +20,30 @@ namespace CdSite.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
+            modelBuilder.Entity("CdSite.Models.Artist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Artist");
+                });
+
             modelBuilder.Entity("CdSite.Models.Cd", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Artist")
+                    b.Property<int?>("ArtistId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Genre")
                         .IsRequired()
@@ -44,6 +59,8 @@ namespace CdSite.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArtistId");
+
                     b.ToTable("Cd");
                 });
 
@@ -54,12 +71,13 @@ namespace CdSite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("BorrowerName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("CdId")
+                    b.Property<int?>("CdId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Date")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -69,13 +87,22 @@ namespace CdSite.Migrations
                     b.ToTable("Lending");
                 });
 
+            modelBuilder.Entity("CdSite.Models.Cd", b =>
+                {
+                    b.HasOne("CdSite.Models.Artist", "Artist")
+                        .WithMany()
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Artist");
+                });
+
             modelBuilder.Entity("CdSite.Models.Lending", b =>
                 {
                     b.HasOne("CdSite.Models.Cd", "Cd")
                         .WithMany()
-                        .HasForeignKey("CdId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CdId");
 
                     b.Navigation("Cd");
                 });

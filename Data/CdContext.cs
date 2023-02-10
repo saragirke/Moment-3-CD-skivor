@@ -15,5 +15,6 @@ namespace CdSite.Data{
         // Knyter an till modeller
         public DbSet<Cd> Cd { get; set; }  = default!;
         public DbSet<Lending> Lending {get; set;}  = default!;
+        public DbSet<Artist> Artist { get; set; } = default!;
     }
 }

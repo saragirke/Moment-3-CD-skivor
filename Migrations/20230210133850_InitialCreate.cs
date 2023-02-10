@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -11,19 +12,38 @@ namespace CdSite.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Artist",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artist", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cd",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Artist = table.Column<string>(type: "TEXT", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
+                    ArtistId = table.Column<int>(type: "INTEGER", nullable: false),
                     Genre = table.Column<string>(type: "TEXT", nullable: false),
                     Year = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cd", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cd_Artist_ArtistId",
+                        column: x => x.ArtistId,
+                        principalTable: "Artist",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -32,9 +52,9 @@ namespace CdSite.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    BorrowerName = table.Column<string>(type: "TEXT", nullable: true),
-                    Date = table.Column<string>(type: "TEXT", nullable: true),
-                    CdId = table.Column<int>(type: "INTEGER", nullable: false)
+                    BorrowerName = table.Column<string>(type: "TEXT", nullable: false),
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CdId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,9 +63,13 @@ namespace CdSite.Migrations
                         name: "FK_Lending_Cd_CdId",
                         column: x => x.CdId,
                         principalTable: "Cd",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cd_ArtistId",
+                table: "Cd",
+                column: "ArtistId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Lending_CdId",
@@ -61,6 +85,9 @@ namespace CdSite.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cd");
+
+            migrationBuilder.DropTable(
+                name: "Artist");
         }
     }
 }

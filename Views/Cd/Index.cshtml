@@ -1,25 +1,26 @@
 @model IEnumerable<CdSite.Models.Cd>
 
 @{
-    ViewData["Title"] = "CD";
+    ViewData["Title"] = "CD-skivor";
 }
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>CD-skivor</title>
 </head>
 <body>
     <h1>CD-skivor</h1>
 <p>
-    <a asp-action="Create">Lägg till CD</a>
+    <a asp-action="Create">Lägg till ny CD</a>
 </p>
 
-<form asp-controller="Cd" asp-action="Index" method="get">
+<form asp-action="Index" method="get">
     <p>
-        Sök på album/artist/genre: <input type="text" name="SearchString" />
+        Sök på album/genre: <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -28,15 +29,11 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Artist)
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.Genre)
             </th>
@@ -50,15 +47,11 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Artist)
+                @Html.DisplayFor(modelItem => item.Artist.Name)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
@@ -69,7 +62,6 @@
                 <a asp-action="Edit" asp-route-id="@item.Id">Redigera</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Radera</a>
-                
             </td>
         </tr>
 }

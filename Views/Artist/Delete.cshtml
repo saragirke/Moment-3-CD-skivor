@@ -1,0 +1,37 @@
+@model CdSite.Models.Artist
+
+@{
+    ViewData["Title"] = "Radera artist";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Radering</title>
+</head>
+<body>
+
+<h3>Är du säker på att du vill ta bort artisen?</h3>
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Tillbaka</a>
+    </form>
+</div>
+</body>
+</html>
