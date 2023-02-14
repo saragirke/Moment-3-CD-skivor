@@ -14,9 +14,8 @@
 </head>
 <body>
 
-<h3>Är du säker på att du vill ta bort artisen?</h3>
+<h3>Är du säker på att du vill ta bort artisten?</h3>
 <div>
-    <h4>Artist</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -26,7 +25,7 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
     </dl>
-    
+    <br>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

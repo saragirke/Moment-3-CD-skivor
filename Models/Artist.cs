@@ -10,7 +10,6 @@ public int Id {get; set;}
 [Display(Name="Namn på artist")]
 public string? Name {get; set;}
 
- public ICollection<Cd>? Cds { get; set; }
 
 }
 

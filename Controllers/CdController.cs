@@ -21,27 +21,24 @@ namespace CdSite
 
       
         // GET: CD + Sökfunktionalitet. 
-        // Blandning av guide from Microsoft och den färdiga koden som kommer när man scaffoldar.
-        //Följde guiden men då gick det inte att lista Artistens namn men sökfunktionen funkade
         public async Task<IActionResult> Index(string searchString)
         {
             var cds = from m in _context.Cd.Include(m => m.Artist)
-            select m;
- 
-        if (_context.Cd == null)
-    {
-        return Problem("Entity set 'MvcCdContext.Movie'  is null.");
-    }
+                      select m;
 
-    //Lamda Expression 
-    //Sök efter Title, Genre
-         if (!String.IsNullOrEmpty(searchString))
-    {
-        cds = cds.Where(s => s.Title!.Contains(searchString) || s.Genre!.Contains(searchString));
-    }
-            return View(await cds.ToListAsync());
+            if (_context.Cd != null)
+            {
+                //Lamda Expression 
+                //Sök efter Title, Genre
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    cds = cds.Where(s => s.Title!.Contains(searchString) || s.Genre!.Contains(searchString) || s.Artist.Name!.Contains(searchString));
+                }
+                return View(await cds.ToListAsync());
+            }
+            return Problem("Entity set 'MvcCdContext.Movie'  is null.");
         }
-        
+
 
 
         // GET: Cd/Details/5
